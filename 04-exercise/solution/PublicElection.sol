@@ -8,6 +8,12 @@ contract PublicElection is Ownable {
   uint startDate;
   uint endDate;
 
+  // that symbolizes a vote with a start and end date.
+  function PublicElection(uint _startdate, uint _endDate){
+    startDate = _startdate;
+    endDate = _endDate;
+  }
+
   struct Candidate {
     string name;
     uint votes;
@@ -15,14 +21,6 @@ contract PublicElection is Ownable {
 
   mapping(address => Candidate) candidates;
   address[] candidateIndex;
-
-  mapping(address => bool) registeredToVote;
-
-  // that symbolizes a vote with a start and end date.
-  function PublicElection(uint _startdate, uint _endDate){
-    startDate = _startdate;
-    endDate = _endDate;
-  }
 
   // where only the owner of the contract can add candidates
   function addCandidate(address _candidateAddress, string _candidateName) onlyOwner {
@@ -44,6 +42,8 @@ contract PublicElection is Ownable {
     require(msg.value == amount);
     _;
   }
+
+  mapping(address => bool) registeredToVote;
 
   // where any user can register to vote as long as they pay 3000 finney
   function registerToVote() payable payedExact(3000 finney) {
