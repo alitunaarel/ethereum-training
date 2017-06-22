@@ -1,5 +1,7 @@
 # Exercise 1
 
+Online editor: https://remix.ethereum.org/
+
 Create a smart contract:
 * that symbolizes a vote with a start and end date.
 * where only the owner of the contract can add candidates
