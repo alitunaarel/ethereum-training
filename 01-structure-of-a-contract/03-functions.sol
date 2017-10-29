@@ -8,7 +8,7 @@ contract Example {
       someValue = aValue;
   }
 
-  function getSomething() constant returns (uint) { // Function thast does not modify state
+  function getSomething() constant returns (uint) { // Function that does not modify state
       return someValue;
   }
 
